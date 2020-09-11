@@ -1,0 +1,5 @@
+package com.philips.service;
+
+public interface ICount {
+
+}

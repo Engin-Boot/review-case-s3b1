@@ -1,0 +1,22 @@
+package com.philips.client;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ReceiverClient {
+
+	public static void main(String[] args) {
+		BufferedReader reader  = new BufferedReader(new InputStreamReader(System.in));
+		
+		try {
+			while(reader.readLine() != null){
+				
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

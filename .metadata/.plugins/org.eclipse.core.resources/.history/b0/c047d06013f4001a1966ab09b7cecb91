@@ -1,0 +1,23 @@
+package com.philips.client;
+
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
+import java.util.Map;
+
+import com.opencsv.CSVWriter;
+import com.philips.operations.WordCount;
+
+public class ReceiverClient {
+
+	public static void main(String[] args) {
+		
+		BufferedReader reader  = new BufferedReader(new InputStreamReader(System.in));
+		WordCount wc = new WordCount(reader);
+		Map<String, Integer> countMap = wc.generateWordCount();
+		wc.printMap(countMap);
+		
+		CSVWriter writer = new CSVWriter(new FileWriter("G:\Philips\Bootcamp\review-case-s3b1\maven-receiver\src"));
+	}
+
+}

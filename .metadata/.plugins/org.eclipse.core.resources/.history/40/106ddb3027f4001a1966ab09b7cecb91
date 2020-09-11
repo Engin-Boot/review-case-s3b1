@@ -1,0 +1,9 @@
+package com.philips.service;
+
+import java.util.Map;
+
+public interface IWriter {
+	
+	void genrateCsvFile(Map<String, Integer> map, String filepath);
+
+}
