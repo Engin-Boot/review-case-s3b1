@@ -19,18 +19,17 @@ public class SplitAndPrint {
 			
 				for(String s : arr)
 				{
-					//String result = s.replaceAll("[-+.^:,]","");
-					//Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");     //^[a-zA-Z0-9]+$ for including special symbols also
-			        //Matcher matcher = pattern.matcher(result);
-			        //boolean isStringContainsSpecialCharacter = matcher.find();
-			        //if(!(isStringContainsSpecialCharacter))
-			        //{
+					String result = s.replaceAll("[-+.^:,]","");
+					Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");     //^[a-zA-Z0-9]+$ for including special symbols also
+			        Matcher matcher = pattern.matcher(result);
+			        boolean isStringContainsSpecialCharacter = matcher.find();
+			        if(!(isStringContainsSpecialCharacter))
+			        {
 			        	if(!(s.isEmpty())  &&  !(s.isBlank()))
 			        	{
-			        		s = s.replaceAll("[^a-zA-Z0-9]", "");  
 			        		wordList.add(s);
 			        	}
-			        //}		
+			        }		
 				}		
 			}
 		}
