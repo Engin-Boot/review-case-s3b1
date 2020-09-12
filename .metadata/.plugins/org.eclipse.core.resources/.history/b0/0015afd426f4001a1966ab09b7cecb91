@@ -1,5 +1,0 @@
-package com.philips.service;
-
-public interface IWriter {
-
-}
