@@ -17,7 +17,7 @@ public class ReceiverClient {
 		IWriter writer = new CsvWrite();
 		Map<String, Integer> wordCountMap = wc.generateWordCount();
 		wc.printWordCount(wordCountMap);
-		writer.generateCsvFile(wordCountMap, "G:\\Philips\\Bootcamp\\review-case-s3b1\\maven-receiver\\src\\main\\resources\\word-count.csv");
+		writer.generateCsvFile(wordCountMap, System.getProperty("user.dir")+"\\src\\main\\resources\\word-count.csv");
 	}
 
 }
