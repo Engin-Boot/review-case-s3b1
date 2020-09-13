@@ -2,10 +2,10 @@ package com.philips.Service;
 
 import java.util.List;
 
-public interface ISplitAndPrint {
+public interface ISplitFile {
 	
 	List<String> prepareList(List<String[]> comments);
-	 void printToConsole(List<String> wordList);
+	
 
 
 }

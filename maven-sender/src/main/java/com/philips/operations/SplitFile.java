@@ -5,9 +5,9 @@ import java.util.List;
 //import java.util.regex.Matcher;
 //import java.util.regex.Pattern;
 
-import com.philips.Service.ISplitAndPrint;
+import com.philips.Service.ISplitFile;
 
-public class SplitAndPrint implements ISplitAndPrint {
+public class SplitFile implements ISplitFile {
 	
 	public List<String> prepareList(List<String[]> comments){
 		
@@ -40,13 +40,7 @@ public class SplitAndPrint implements ISplitAndPrint {
 	}
 
 
-  public void printToConsole(List<String> wordList)
-  {
-	  for(String str : wordList) {
-		  System.out.println(str);
-	  }
-	  
-  }
+ 
   
 }
 

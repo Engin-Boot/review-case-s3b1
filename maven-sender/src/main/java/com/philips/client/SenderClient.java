@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.util.List;
 
 import com.opencsv.exceptions.CsvValidationException;
+import com.philips.Service.IPrintToConsole;
+import com.philips.Service.ISplitFile;
 import com.philips.operations.CsvReader;
-import com.philips.operations.SplitAndPrint;
+import com.philips.operations.PrintToConsole;
+import com.philips.operations.SplitFile;
 
 public class SenderClient {
 
@@ -17,9 +20,13 @@ public class SenderClient {
 	 
 			List<String[]>  listStringArrayObject = csvReadObject.readCsv();
 		
-	      SplitAndPrint sp = new SplitAndPrint();
+	      ISplitFile sp = new SplitFile();
 	      List<String> listStringObject = sp.prepareList(listStringArrayObject);
-	      sp.printToConsole(listStringObject);
+	      
+	      IPrintToConsole ptc = new PrintToConsole();
+	      ptc.printToConsole(listStringObject);
+	      
+	      
 	      
 	      
 	      
