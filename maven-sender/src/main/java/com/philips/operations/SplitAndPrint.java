@@ -2,10 +2,12 @@ package com.philips.operations;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+//import java.util.regex.Matcher;
+//import java.util.regex.Pattern;
 
-public class SplitAndPrint {
+import com.philips.Service.ISplitAndPrint;
+
+public class SplitAndPrint implements ISplitAndPrint {
 	
 	public List<String> prepareList(List<String[]> comments){
 		
