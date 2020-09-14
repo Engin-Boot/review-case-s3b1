@@ -1,6 +1,5 @@
 package com.philips.sender.client;
 
-import java.io.IOException;
 import java.util.List;
 
 import com.philips.sender.service.IPrintToConsole;
@@ -9,24 +8,17 @@ import com.philips.sender.operation.PrintToConsole;
 
 public class SenderClient {
 
-	public static void main(String arg[]) throws  IOException
+	public static void main(String[] args)
 	{	
+		String filepath = args[0];
+		String columnName = args[1];
 		
-			//String filepath = "C:\\Users\\sss\\Documents\\review-case-s3b1\\sample-review\\review-report.csv";
-	      
-			//System.out.println("Welcome");
-			String filepath = arg[0];
-			String value = arg[1];
-			CsvReader csvReadObject = new CsvReader(filepath);
-	 
-			List<String[]>  listStringArrayObject = csvReadObject.readCsv();
-			
-			IPrintToConsole ptc = new PrintToConsole();
-			ptc.printToConsole(listStringArrayObject,value);
-	      
-	      
-	      
-	      
-	      
+		CsvReader csvReadObject = new CsvReader(filepath);
+ 
+		List<String[]>  listStringArrayObject = csvReadObject.readUsingBufferedReader();
+		
+		IPrintToConsole ptc = new PrintToConsole();
+		int index = ptc.getIndexForColumnName(listStringArrayObject.get(0), columnName);
+		ptc.printToConsole(listStringArrayObject, index);
 	}
 }

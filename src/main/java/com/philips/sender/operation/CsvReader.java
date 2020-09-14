@@ -1,5 +1,6 @@
 package com.philips.sender.operation;
 
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,19 +18,40 @@ public class CsvReader {
 		this.filepath = filepath;
 	}
 	
-	public  List<String[]> readCsv() throws  IOException
-	{
-		List<String[]> list = new ArrayList<String[]>();
-		CSVReader csvr  = new CSVReader(new FileReader(filepath)); 
-		String nextRecord[];
-		while((nextRecord = csvr.readNext()) != null)
-		{
-					
-					list.add(nextRecord);
-					
-					
+	public List<String[]> readUsingBufferedReader(){
+		List<String[]> list = new ArrayList<>();
+		try(BufferedReader reader = new BufferedReader(new FileReader(filepath))){
+			
+			String row;
+			while ((row = reader.readLine()) != null) {
+			    String[] data = row.split(",");
+			    if(data.length > 1){
+			    	list.add(data);
+			    }
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		
+		return list;
+	}
+	
+	public  List<String[]> readCsv()
+	{
+		List<String[]> list = new ArrayList<>();
+		try(CSVReader csvr = new CSVReader(new FileReader(filepath))) {
+			
+			String[] nextRecord;
+			
+			while((nextRecord = csvr.readNext()) != null)
+			{
+				list.add(nextRecord);
+			}
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
 		return list;
 	}
 

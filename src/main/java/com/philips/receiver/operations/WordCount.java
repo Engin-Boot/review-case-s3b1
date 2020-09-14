@@ -30,16 +30,17 @@ public class WordCount implements ICount{
 		
 		String line;
 		String[] words;
-		List<String> wordList = new ArrayList<String>();
+		List<String> wordList = new ArrayList<>();
 		try{
 			while((line = reader.readLine()) != null){
 				line = line.trim();
 				words = line.split(" ");
 				for(String word : words)
 				{
-		        	if(word != null && (!word.isEmpty()))
+					word = word.replaceAll("[^a-zA-Z]", ""); 
+					word = word.trim();
+		        	if(!word.isEmpty())
 		        	{   
-		        		word = word.replaceAll("[^a-zA-Z0-9]", "");  
 		        		wordList.add(word);
 		        	}
 				}		
@@ -54,7 +55,7 @@ public class WordCount implements ICount{
 
 	public Map<String, Integer> generateWordCount(List<String> wordList) {
 		
-		Map<String, Integer> wordCountMap = new HashMap<String, Integer>();
+		Map<String, Integer> wordCountMap = new HashMap<>();
 		
 		for(String word : wordList){
 			if(wordCountMap.containsKey(word)){

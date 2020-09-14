@@ -5,26 +5,29 @@ import java.util.List;
 import com.philips.sender.service.IPrintToConsole;
 
 public class PrintToConsole implements IPrintToConsole {
-
 	
-	 public void printToConsole(List<String[]> wordList, String value)
-	  {
-		  for(String[] str : wordList) 
-		  {
-			  if(value.equals("comment"))
-			  {
-				 if(!(str[1].isEmpty()))
-				 {
-					 System.out.println(str[1]);
-				 }
-			  }
-			  if(value.equals("Date"))
-			  {	
-				  if(!(str[0].isEmpty()))
-				  {
-					  System.out.println(str[0]);
-				  }
-			  }
-	  	  }
-	  }
+	@Override
+	public int getIndexForColumnName(String[] fileHeader, String columnName) {
+		
+		int index = 0;
+		for(int i = 0; i < fileHeader.length; i++){
+			if(fileHeader[i].equalsIgnoreCase(columnName)){
+				index = i;
+				break;
+			}
+		}
+		return index;
+	}
+	
+    public void printToConsole(List<String[]> wordList, int index)
+	{	
+    	for(String[] str : wordList) 
+    	{
+    		if(!(str[index].isEmpty()))
+    		{
+    			System.out.println(str[index]);
+    		}
+    	}
+	 }
+
 }

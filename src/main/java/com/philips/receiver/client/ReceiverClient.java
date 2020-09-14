@@ -19,7 +19,6 @@ public class ReceiverClient {
 		IWriter writer = new CsvWrite();
 		List<String> wordList = wc.generateListOfWords();
 		Map<String, Integer> wordCountMap = wc.generateWordCount(wordList);
-		wc.printWordCount(wordCountMap);
 		writer.generateCsvFile(wordCountMap, System.getProperty("user.dir")+"\\src\\main\\resources\\word-count.csv");
 	}
 

@@ -13,22 +13,19 @@ public class CsvWrite implements IWriter{
 	public void generateCsvFile(Map<String,Integer> wordCount, String filepath){
 		
 		File file = new File(filepath);
-		try{
+		try(FileWriter outputFile = new FileWriter(file)){
 			
-			FileWriter outputfile = new FileWriter(file);
-			CSVWriter writer = new CSVWriter(outputfile); 
+			try(CSVWriter writer = new CSVWriter(outputFile)){
+				String[] header = { "word", "count"}; 
+		        writer.writeNext(header); 
+		  
+		        // add data to CSV
+		        for(Map.Entry<String, Integer> entry: wordCount.entrySet()){
+		        	String[] countPair = {entry.getKey(), entry.getValue().toString()};
+		        	writer.writeNext(countPair);
+		        }
+			}
 			
-			String[] header = { "word", "count"}; 
-	        writer.writeNext(header); 
-	  
-	        // add data to csv 
-	        for(Map.Entry<String, Integer> entry: wordCount.entrySet()){
-	        	String[] countPair = {entry.getKey(), entry.getValue().toString()};
-	        	writer.writeNext(countPair);
-	        }
-	  
-	        // closing writer connection 
-	        writer.close(); 
 		}catch (IOException e){
 			e.printStackTrace();
 		}
