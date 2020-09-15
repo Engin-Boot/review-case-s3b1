@@ -4,21 +4,109 @@
   <artifactId>maven-review-of-reviews</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+    <properties>
+        <!-- https://maven.apache.org/general.html#encoding-warning -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+  
   <dependencies>
-  	<dependency>
-   		<groupId>com.opencsv</groupId>
-   		<artifactId>opencsv</artifactId>
-   		<version>4.4</version>
+  <!-- https://mvnrepository.com/artifact/junit/junit -->
+	<dependency>
+    	<groupId>junit</groupId>
+    	<artifactId>junit</artifactId>
+    	<version>4.12</version>
+    	<scope>test</scope>	
 	</dependency>
 	<dependency>
-	   <groupId>org.apache.commons</groupId>
-	   <artifactId>commons-lang3</artifactId>
-	   <version>3.9</version>
+	  	<groupId>org.apache.commons</groupId>
+	   	<artifactId>commons-lang3</artifactId>
+	   	<version>3.9</version>
 	</dependency>
 	<dependency>
 	    <groupId>log4j</groupId>
 	    <artifactId>log4j</artifactId>
 	    <version>1.2.17</version>
 	</dependency>
+  
+  	<dependency>
+   		<groupId>com.opencsv</groupId>
+   		<artifactId>opencsv</artifactId>
+   		<version>4.4</version>
+	</dependency>
+	
+	
+	<dependency>
+	   <groupId>org.apache.commons</groupId>
+	   <artifactId>commons-lang3</artifactId>
+	   <version>3.9</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/javancss-maven-plugin -->
+	<dependency>
+    	<groupId>org.codehaus.mojo</groupId>
+    	<artifactId>javancss-maven-plugin</artifactId>
+    	<version>2.1</version>
+	</dependency>
+	
   </dependencies>
+  <build>
+    <plugins>
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.1</version>
+            <configuration>
+                <fork>true</fork>
+                <executable>C:\Program Files\Java\jdk1.8.0_162\bin\javac.exe</executable>
+            </configuration>
+        </plugin>
+   		<plugin>
+        	<groupId>org.jacoco</groupId>
+        	<artifactId>jacoco-maven-plugin</artifactId>
+        	<version>0.7.1.201405082137</version>
+        	<executions>
+            	<execution>
+                	<id>default-prepare-agent</id>
+                	<goals>
+                    	<goal>prepare-agent</goal>
+                	</goals>
+            	</execution>
+            	<execution>
+                	<id>default-report</id>
+                	<phase>prepare-package</phase>
+                	<goals>
+                    	<goal>report</goal>
+                	</goals>
+            	</execution>
+            	<execution>
+                	<id>default-check</id>
+                	<goals>
+                    	<goal>check</goal>
+                	</goals>
+                	<configuration>
+                    	<rules>
+                        	<rule>
+                            	<element>BUNDLE</element>
+                            	<limits>
+                                	<limit>
+                                    	<counter>COMPLEXITY</counter>
+                                    	<value>COVEREDRATIO</value>
+                                    	<minimum>0.50</minimum>
+                                	</limit>
+                           	 	</limits>
+                        	</rule>
+                    	</rules>
+                	</configuration>
+            	</execution>
+        	</executions>   
+    	</plugin>
+      	<plugin>
+        	<groupId>com.github.spotbugs</groupId>
+        	<artifactId>spotbugs-maven-plugin</artifactId>
+        	<version>4.0.4</version>
+      	</plugin>
+    	</plugins>
+    </build>
+
+  
 </project>
