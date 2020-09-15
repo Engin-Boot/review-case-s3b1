@@ -7,9 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.philips.receiver.service.ICount;
 
 public class WordCount implements ICount{
+	
+	private static Logger log = Logger.getLogger(WordCount.class.getName());
 	
 	private BufferedReader reader;
 	private int count;
@@ -22,7 +26,7 @@ public class WordCount implements ICount{
 	public void printWordCount(Map<String, Integer> map){
 		
 		for(Map.Entry<String, Integer> wordCount : map.entrySet()){
-			System.out.println("Word = " + wordCount.getKey() + " count = " + wordCount.getValue());
+			log.info("Word = " + wordCount.getKey() + " count = " + wordCount.getValue());
 		}
 	}
 

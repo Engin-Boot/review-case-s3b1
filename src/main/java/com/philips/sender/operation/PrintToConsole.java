@@ -2,9 +2,12 @@ package com.philips.sender.operation;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import com.philips.sender.service.IPrintToConsole;
 
 public class PrintToConsole implements IPrintToConsole {
+	
+	private static Logger log = Logger.getLogger(PrintToConsole.class.getName());
 	
 	@Override
 	public int getIndexForColumnName(String[] fileHeader, String columnName) {
@@ -25,7 +28,7 @@ public class PrintToConsole implements IPrintToConsole {
     	{
     		if(!(str[index].isEmpty()))
     		{
-    			System.out.println(str[index]);
+    			log.info(str[index]);
     		}
     	}
 	 }
