@@ -5,10 +5,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.opencsv.CSVWriter;
 import com.philips.receiver.service.IWriter;
 
 public class CsvWrite implements IWriter{
+	
+	private static Logger log = Logger.getLogger(CsvWrite.class.getName());
 	
 	public void generateCsvFile(Map<String,Integer> wordCount, String filepath){
 		
@@ -27,7 +31,7 @@ public class CsvWrite implements IWriter{
 			}
 			
 		}catch (IOException e){
-			e.printStackTrace();
+			log.warn("IO Exception occured ", e);
 		}
 	}
 }

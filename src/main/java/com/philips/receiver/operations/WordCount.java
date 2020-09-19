@@ -25,9 +25,12 @@ public class WordCount implements ICount{
 	
 	public void printWordCount(Map<String, Integer> map){
 		
-		for(Map.Entry<String, Integer> wordCount : map.entrySet()){
-			log.info("Word = " + wordCount.getKey() + " count = " + wordCount.getValue());
+		if(log.isInfoEnabled()){
+			for(Map.Entry<String, Integer> wordCount : map.entrySet()){
+				log.info("Word = " + wordCount.getKey() + " count = " + wordCount.getValue());
+			}
 		}
+		
 	}
 
 	public List<String> generateListOfWords(){
@@ -51,7 +54,7 @@ public class WordCount implements ICount{
 			}
 			reader.close();
 		}catch (IOException e) {
-			e.printStackTrace();
+			log.warn("IO Exception occured", e);
 		}
 		
 		return wordList;

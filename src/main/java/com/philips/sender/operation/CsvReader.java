@@ -6,10 +6,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.opencsv.CSVReader;
 
 
 public class CsvReader {
+	
+	private static Logger log = Logger.getLogger(CsvReader.class.getName());
 	
 	private String filepath;
 	
@@ -30,7 +34,7 @@ public class CsvReader {
 			    }
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.warn("IO Exception occured", e);
 		}
 		
 		return list;
@@ -50,7 +54,7 @@ public class CsvReader {
 			
 		} catch (IOException e) {
 			
-			e.printStackTrace();
+			log.warn("IO Exception occured", e);
 		}
 		return list;
 	}
