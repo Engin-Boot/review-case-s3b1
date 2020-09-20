@@ -8,8 +8,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.opencsv.CSVReader;
-
 
 public class CsvReader {
 	
@@ -37,25 +35,6 @@ public class CsvReader {
 			log.warn("IO Exception occured", e);
 		}
 		
-		return list;
-	}
-	
-	public  List<String[]> readCsv()
-	{
-		List<String[]> list = new ArrayList<>();
-		try(CSVReader csvr = new CSVReader(new FileReader(filepath))) {
-			
-			String[] nextRecord;
-			
-			while((nextRecord = csvr.readNext()) != null)
-			{
-				list.add(nextRecord);
-			}
-			
-		} catch (IOException e) {
-			
-			log.warn("IO Exception occured", e);
-		}
 		return list;
 	}
 
