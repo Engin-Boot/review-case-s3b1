@@ -22,10 +22,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Download the Cerberus jar file
-        run: "curl -H 'Accept: application/zip' https://github.com/philips-software/cerberus/releases/download/4/cerberus-4.0.jar > cerberus-4.0.jar"
-
       # Runs a set of commands using the runners shell
       - name: Run a CPD check
         run: java -jar cerberus-4.0.jar CPD --files=./src --format=text --language=java --minimum-tokens=30
