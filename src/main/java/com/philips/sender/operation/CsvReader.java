@@ -20,16 +20,20 @@ public class CsvReader {
 		this.filepath = filepath;
 	}
 	
+	public void addToList(List<String[]> list, String row){
+		String[] data = row.split(",");
+	    if(data.length > 1){
+	    	list.add(data);
+	    }
+	}
+	
 	public List<String[]> readUsingBufferedReader(){
 		List<String[]> list = new ArrayList<>();
 		try(BufferedReader reader = new BufferedReader(new FileReader(filepath))){
 			
 			String row;
 			while ((row = reader.readLine()) != null) {
-			    String[] data = row.split(",");
-			    if(data.length > 1){
-			    	list.add(data);
-			    }
+			    this.addToList(list, row);
 			}
 		} catch (IOException e) {
 			log.warn("IO Exception occured", e);

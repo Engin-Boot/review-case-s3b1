@@ -32,25 +32,29 @@ public class WordCount implements ICount{
 		}
 		
 	}
+	
+	public void operateOnLine(List<String> wordList, String line){
+		String[] words;
+		line = line.trim();
+		words = line.split(" ");
+		for(String word : words)
+		{
+			word = word.replaceAll("[^a-zA-Z]", ""); 
+			word = word.trim();
+        	if(!word.isEmpty())
+        	{   
+        		wordList.add(word);
+        	}
+		}		
+	}
 
 	public List<String> generateListOfWords(){
 		
 		String line;
-		String[] words;
 		List<String> wordList = new ArrayList<>();
 		try{
 			while((line = reader.readLine()) != null){
-				line = line.trim();
-				words = line.split(" ");
-				for(String word : words)
-				{
-					word = word.replaceAll("[^a-zA-Z]", ""); 
-					word = word.trim();
-		        	if(!word.isEmpty())
-		        	{   
-		        		wordList.add(word);
-		        	}
-				}		
+				this.operateOnLine(wordList, line);
 			}
 			reader.close();
 		}catch (IOException e) {
