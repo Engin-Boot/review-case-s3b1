@@ -1,7 +1,6 @@
 package com.philips.testSender;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -9,7 +8,6 @@ import org.junit.Test;
 
 import com.philips.sender.operation.CsvReader;
 import com.philips.sender.operation.PrintToConsole;
-import com.philips.sender.service.IPrintToConsole;
 
 public class SenderTest 
 {
