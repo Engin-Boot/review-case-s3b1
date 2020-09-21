@@ -1,4 +1,4 @@
-package senderTest;
+package sender;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -16,15 +16,15 @@ public class senderTesting
 	@Test
 	public void checkFileEmpty() {
 		String filename = "\\senderTestSample1.csv.xlsx";
-		CsvReader csvRead = new CsvReader(filename);
+		CsvReader csvr = new CsvReader(filename);
 		 assertFalse(filename.isEmpty());
 	}
 	
 	@Test
 	public void checkRowCount() {
 		String filepath = "\\senderTestSample1.csv.xlsx";
-		CsvReader csvRead = new CsvReader(filepath);
-		List<String[]> lineCount = csvRead.readUsingBufferedReader();
+		CsvReader csvr = new CsvReader(filepath);
+		List<String[]> lineCount = csvr.readUsingBufferedReader();
 		//assertEquals(lineCount.size(),5);
 		assertTrue(lineCount.size() == 3);
 	}
