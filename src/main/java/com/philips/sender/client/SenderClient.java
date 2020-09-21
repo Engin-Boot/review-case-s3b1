@@ -15,7 +15,7 @@ public class SenderClient {
 		
 		CsvReader csvReadObject = new CsvReader(filepath);
  
-		List<String[]>  listStringArrayObject = csvReadObject.whenFileFoundThenReadUsingBufferedReader();
+		List<String[]>  listStringArrayObject = csvReadObject.readUsingBufferedReader();
 		
 		IPrintToConsole ptc = new PrintToConsole();
 		int index = ptc.getIndexForColumnName(listStringArrayObject.get(0), columnName);

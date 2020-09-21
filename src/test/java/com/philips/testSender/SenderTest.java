@@ -31,7 +31,7 @@ public class SenderTest
 	public void checkRowCount() {
 		String filepath = "\\src\\test\\resources\\senderTestSample2.csv";
 		CsvReader csvr = new CsvReader(filepath);
-		List<String[]> lineCount = csvr.whenFileFoundThenReadUsingBufferedReader();
+		List<String[]> lineCount = csvr.readUsingBufferedReader();
 		assertEquals(lineCount.size(),7);
 		
 	}
@@ -56,7 +56,7 @@ public class SenderTest
 	      System.setOut(new PrintStream(outContent));
 	      String filename = "\\src\\test\\resources\\senderTestSample1.csv";
 	      CsvReader csvr = new CsvReader(filename);
-	      List<String[]> wordList = csvr.whenFileFoundThenReadUsingBufferedReader();
+	      List<String[]> wordList = csvr.readUsingBufferedReader();
 	      PrintToConsole printing = new PrintToConsole();
 	      printing.printToConsole(wordList, 1);
 	      
