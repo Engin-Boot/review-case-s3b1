@@ -1,4 +1,4 @@
-package receiver;
+package RecieverTest;
 
 import static org.junit.Assert.*;
 
