@@ -23,6 +23,19 @@ public class WordCount implements ICount{
 		this.count = 0;
 	}
 	
+	public WordCount() {
+		this.reader = null;
+		this.count = 0;
+	}
+	
+	public BufferedReader getReader(){
+		return this.reader;
+	}
+	
+	public int getCount(){
+		return this.count;
+	}
+
 	public void printWordCount(Map<String, Integer> map){
 		
 		if(log.isInfoEnabled()){
