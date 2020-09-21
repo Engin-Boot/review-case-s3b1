@@ -1,4 +1,4 @@
-package sender;
+package com.philips.testSender;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -35,15 +35,13 @@ public class WordCount implements ICount{
 	
 	public void operateOnLine(List<String> wordList, String line){
 		String[] words;
-		line = line.trim();
-		words = line.split(" ");
+		words = line.trim().split(" ");
 		for(String word : words)
 		{
-			word = word.replaceAll("[^a-zA-Z]", ""); 
-			word = word.trim();
-        	if(!word.isEmpty())
+			String operatedWord = word.replaceAll("[^a-zA-Z]", "").trim(); 
+        	if(!operatedWord.isEmpty())
         	{   
-        		wordList.add(word);
+        		wordList.add(operatedWord);
         	}
 		}		
 	}
