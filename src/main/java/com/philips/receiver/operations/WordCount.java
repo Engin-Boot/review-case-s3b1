@@ -35,16 +35,6 @@ public class WordCount implements ICount{
 	public int getCount(){
 		return this.count;
 	}
-
-	public void printWordCount(Map<String, Integer> map){
-		
-		if(log.isInfoEnabled()){
-			for(Map.Entry<String, Integer> wordCount : map.entrySet()){
-				log.info("Word = " + wordCount.getKey() + " count = " + wordCount.getValue());
-			}
-		}
-		
-	}
 	
 	public void operateOnLine(List<String> wordList, String line){
 		String[] words;
